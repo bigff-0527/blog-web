@@ -14,7 +14,7 @@
     </a>
     <a slot="text" @click="clickTab(4)"
        :class="navIndex=== 4 ? ' m-item item m-mobile-hide active' :' m-item item m-mobile-hide' " >
-      <i class="tags icon"></i>归档
+      <i class="tags icon"></i>时间轴
     </a>
     <a slot="text" @click="clickTab(5)"
        :class="navIndex=== 5 ? ' m-item item m-mobile-hide active' :' m-item item m-mobile-hide' " >
@@ -82,9 +82,11 @@
     },
     methods: {
       clickTab(index){
-        if (this.$route.path!=this.tab[index-1].path)
-        this.navIndex = index;
-        this.$router.replace(this.tab[index-1].path)
+        if (this.$route.path!=this.tab[index-1].path){
+          this.navIndex = index;
+          this.$router.replace(this.tab[index-1].path)
+        }
+
       },
       clickType(index){
         this.navIndex = index+1

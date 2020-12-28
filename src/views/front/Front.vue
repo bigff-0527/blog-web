@@ -12,8 +12,10 @@
       :tagList="tagList.list"
       @type="typeClick(arguments)"
       :typeIndex="typeIndex"
-      @tag="tagClick"
+      :typeId="typeId"
+      @tag="tagClick(arguments)"
       :tagIndex="tagIndex"
+      :tagIdex="tagId"
     >
 
     </router-view>
@@ -32,7 +34,7 @@
   import FrontTabBar from "components/content/mainTabBar/FrontTabBar";
 
 
-  import {getHomeData} from 'network/home'
+  import {getIndexData} from 'network/home'
 
   export default {
     name: "Front",
@@ -42,7 +44,6 @@
     },
     data() {
       return  {
-
         blogList: {
           pageNum: 0,
           pageSize: 0,
@@ -58,20 +59,20 @@
         typeId: 0,
         typeIndex: 0,
         tagIndex: 0,
+        tagId: 0
       }
     },
 
     methods: {
       //网络请求
-      getHomeBlog(pageSize) {
+      getIndexData(pageSize) {
         const page = this.blogList.pageNum + 1
-        getHomeData(page, pageSize).then(res => {
-          this.blogList.list.push(...res.blog.content)
-          this.classList.list = res.class
-          this.tagList.list = res.tag
-          this.blogList.pageNum += 1
-          this.footerBlog = this.blogList.list
-
+        getIndexData(page).then(res => {
+          // this.blogList.list.push(...res.data.blog.content)
+          // this.classList.list = res.data.class
+          // this.tagList.list = res.data.tag
+          // this.blogList.pageNum += 1
+          // this.footerBlog = this.blogList.list
           console.log(res)
         })
       },
@@ -84,13 +85,14 @@
           this.typeIndex = type[1]
           this.$refs.boy01.clickType(1)
       },
-      tagClick(index){
+      tagClick(tag){
         this.$refs.boy01.clickTag(2)
-        this.tagIndex=index
+        this.tagIndex = tag[1]
+        this.typeId = tag[0]
       }
     },
     created() {
-      this.getHomeBlog(8)
+      this.getIndexData(8)
       // this.getClassList(5)
       // this.getFooterBlog()
     },

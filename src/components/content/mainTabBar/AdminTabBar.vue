@@ -62,9 +62,11 @@
     },
     methods: {
       clickTab(index) {
-        if (this.$route.path != this.tab[index - 1].path)
+        if (this.$route.path != this.tab[index - 1].path){
           this.navIndex = index;
-        this.$router.replace(this.tab[index - 1].path)
+          this.$router.replace(this.tab[index - 1].path)
+        }
+
       },
 
     },

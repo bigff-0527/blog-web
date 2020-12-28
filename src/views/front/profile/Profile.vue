@@ -1,18 +1,36 @@
 <template>
   <div class="m-container-small m-padded-tb-big">
     <div class="ui container">
+      <div class="block">
+        <div class="radio">
+          排序：
+          <el-radio-group v-model="reverse">
+            <el-radio :label="true">倒序</el-radio>
+            <el-radio :label="false">正序</el-radio>
+          </el-radio-group>
+        </div>
+        <el-timeline :reverse="reverse">
 
-      <count>
-        <h3 slot="typeName" class="ui teal header">归档</h3>
-        <h2 slot="typeCount" class="ui orange header m-inline-blok m-text-thin">1</h2>
-      </count>
-
-      <h3 class="ui center aligned header">2017</h3>
-      <profile-item>
-        <span slot="title">标题</span>
-        <div slot="createTime" class="ui teal basic left pointing label m-padded-tb-mini">2020-09-07</div>
-        <div slot="type" class="ui orange basic left pointing label m-padded-tb-mini">原创</div>
-      </profile-item>
+          <el-timeline-item timestamp="2018/4/12" placement="top" >
+            <el-card>
+              <h4>更新 Github 模板</h4>
+              <p>王小虎 提交于 2018/4/12 20:46</p>
+            </el-card>
+          </el-timeline-item>
+          <el-timeline-item timestamp="2018/4/3" placement="top">
+            <el-card>
+              <h4>更新 Github 模板</h4>
+              <p>王小虎 提交于 2018/4/3 20:46</p>
+            </el-card>
+          </el-timeline-item>
+          <el-timeline-item timestamp="2018/4/2" placement="top">
+            <el-card>
+              <h4>更新 Github 模板</h4>
+              <p>王小虎 提交于 2018/4/2 20:46</p>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
+      </div>
 
     </div>
   </div>
@@ -26,6 +44,11 @@
     components: {
       Count,
       ProfileItem
+    },
+    data(){
+      return {
+        reverse : true
+      }
     }
   }
 </script>

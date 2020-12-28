@@ -16,10 +16,8 @@
           <div class="ui mini pagination menu">
             <a onclick="page(this)"  class=" item" >上一页</a>
             <a onclick="page(this)"  class=" item" >下一页</a>
-
-
           </div>
-          <a href="#"  class="ui mini right floated teal basic button">新增</a>
+          <slot name="operationInsert"></slot>
         </th>
       </tr>
       </tfoot>
@@ -34,7 +32,17 @@
 
 <script>
   export default {
-    name: "Operation"
+    name: "Operation",
+    data(){
+      return {
+        blog:  0
+      }
+    },
+    props: {
+
+    },
+
+
   }
 </script>
 

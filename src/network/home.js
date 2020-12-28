@@ -1,12 +1,10 @@
 import {request} from "./requset";
 
-export function getHomeData(pageNum,pageSize) {
+export function getIndexData(pageNum) {
   return request({
-    url: '/homeData',
-    // headers: { 'content-type': 'application/json' },
+    url: '/getIndexData',
     params: {
       pageNum,
-      pageSize
     }
   })
 }

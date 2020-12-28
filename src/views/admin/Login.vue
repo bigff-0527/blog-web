@@ -9,25 +9,26 @@
               管理后台登录
             </div>
           </h2>
-          <form class="ui large form" method="post" action="#" >
+          <form class="ui large form" >
             <div class="ui  segment">
               <div class="field">
                 <div class="ui left icon input">
                   <i class="user icon"></i>
-                  <input type="text" name="username" placeholder="用户名 ">
+                  <input @keyup.enter="loginSuB()" type="text" v-model="username" placeholder="用户名 ">
                 </div>
               </div>
               <div class="field">
                 <div class="ui left icon input">
                   <i class="lock icon"></i>
-                  <input type="password" name="password" placeholder="密码">
+                  <input @keyup.enter="loginSuB()" type="password" v-model="password" placeholder="密码">
                 </div>
               </div>
-              <button class="ui fluid large teal submit button">登  录</button>
+              <div  @click="loginSuB()" class="ui fluid large teal submit button">登  录</div>
             </div>
 
-            <div class="ui error mini message"></div>
-<!--            <div class="ui mini negative message" ></div>-->
+            <div v-if="message" class="ui error mini message"></div>
+            <div v-if="message" class="ui mini negative message" >{{message}}</div>
+
           </form>
 
         </div>
@@ -37,12 +38,33 @@
 </template>
 
 <script>
-  import {login} from "assets/js/pop";
+  // import {login} from "assets/js/pop";
+  import {login} from "network/login";
+
 
   export default {
     name: "login",
+    data(){
+      return {
+        username: '',
+        password: '',
+        message: null,
+      }
+    },
     mounted() {
-      login()
+      // login()
+    },
+    methods: {
+      loginSuB(){
+        login(this.username,this.password).then( res => {
+          console.log(res)
+          if (res.code==10000){
+            this.$router.push('/admin')
+          }else{
+            this.message = res.msg
+          }
+        })
+      }
     }
   }
 </script>

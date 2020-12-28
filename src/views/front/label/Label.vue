@@ -8,36 +8,17 @@
       </count>
 
       <label-item>
-        <a v-for="(item, index) in tagList" href="#"  @click="clickTag(index)"
-           :class="tagIndex === index ? 'ui  basic left pointing large label m-margin-tb-tiny m-margin-lr-big teal'
+        <a v-for="(item, index) in tagList" href="#"
+           @click="isActive(item.tagId,index)"
+           :class="tagActiveIndex === index ? 'ui  basic left pointing large label m-margin-tb-tiny m-margin-lr-big teal'
             : 'ui  basic left pointing large label m-margin-tb-tiny m-margin-lr-big'">
           <span >{{item.tagName}}</span>
           <div class="detail" >{{item.blogs.length}}</div>
         </a>
       </label-item>
 
-      <div class="ui top attached teal segment" v-for="(item,index) in blogList">
-        <blog-list slot="blogList"  v-for="tagItem in item.tags" v-if="tagActiveIndex+1 === tagItem.tagId"  >
-          <h3 slot="title" class="ui header"><a href="#"  target="_blank" class="m-black" >{{item.title}}</a></h3>
-          <p slot="desc" class="m-text" >{{item.description}}</p>
-          <blog-author slot="author">
-            <img slot="authorHead" :src="item.user.avatar"  alt="" class="ui avatar image">
-            <div slot="authorName" class="content"><a href="#" class="header" >{{item.user.username}}</a></div>
-          </blog-author>
-          <span slot="createTime" >{{item.update_time}}</span>
-          <span slot="view">{{item.views}}</span>
-          <img slot="first_picture" :src="item.first_picture" class="ui rounded image" alt="">
-          <a slot="classify" href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" >{{item.type.typeName}}</a>
-        </blog-list>
-      </div>
+      <blogs :blogList="blogList.list"></blogs>
 
-
-      <blog-page slot="page">
-        <slot name="blogPage">
-          <a slot="pageUp" class="ui teal mini basic button">上一页</a>
-          <a slot="pageDown" class="ui teal mini basic button" >下一页</a>
-        </slot>
-      </blog-page>
 
 
     </div>
@@ -50,6 +31,10 @@
   import BlogList from "components/common/BlogList/BlogList";
   import BlogPage from "components/common/BlogPage/BlogPage";
   import BlogAuthor from "components/common/BlogList/BlogAuthor/BlogAuthor";
+  import Blogs from "components/content/blogs/Blogs";
+
+  import {getTagList,getBlogByTagId} from "network/tag";
+
   export default {
     name: "Classify",
     components: {
@@ -57,25 +42,60 @@
       LabelItem,
       BlogList,
       BlogPage,
-      BlogAuthor
+      BlogAuthor,
+      Blogs
     },
     props: {
-      blogList: Array,
-      tagList: Array,
       tagIndex :{
         type: Number,
-        default: 0
-      }
+        default(){
+          return 1
+        }
+      },
+      tagId: {
+        type: Number,
+        default(){
+          return 1
+        }
+      },
     },
     data(){
       return {
-        tagActiveIndex: this.tagIndex
+        tagActiveIndex: this.tagIndex,
+        blogList: {
+          pageNum: 1,
+          pageSize: 30,
+          list: [],
+
+        },
+        id: 1,
+        tagList:{}
       }
     },
     methods: {
-      clickTag(index){
+      isActive(tagId,index){
         this.tagActiveIndex=index
+        this.id = tagId
+        this.getBlogByTagId(tagId)
+      },
+      getTagList(){
+        getTagList().then( res => {
+          this.tagList = res.data
+        })
+      },
+      getBlogByTagId(id){
+        const page = this.blogList.pageNum;
+        const size = this.blogList.pageSize;
+        console.log(page,size,id)
+        getBlogByTagId(page,size,id).then( res => {
+          this.blogList.list=res.data.content
+          console.log(res)
+        })
       }
+    },
+    mounted() {
+      this.getTagList()
+      this.getBlogByTagId(this.id)
     }
   }
 </script>

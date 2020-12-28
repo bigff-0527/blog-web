@@ -45,7 +45,7 @@
 
             </home-classify>
             <home-label slot="labelCount">
-              <a v-for="(item,index) in tagList" @click="tagClick(index)"  target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny">
+              <a v-for="(item,index) in tagList" @click="tagClick(item.tagId,index)"  target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny">
                 <span >{{item.tagName}}</span>
                 <div class="detail" >{{item.blogs.length}}</div>
               </a>
@@ -126,7 +126,7 @@
         this.$emit("type",typeId,index)
 
       },
-      tagClick(index){
+      tagClick(tagId,index){
         this.$emit("tag",index)
       }
     },
