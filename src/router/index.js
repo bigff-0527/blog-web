@@ -7,16 +7,16 @@ import FrontAbout from "views/front/about/About";
 import FrontClassify from "views/front/classify/Classify";
 import FrontLabel from "views/front/label/Label"
 import FrontProfile from "views/front/profile/Profile"
-
-import Admin from "views/admin/Admin";
-import AdminIndex from "views/admin/index/Index";
-import AdminBlogs from "views/admin/blogs/Blogs";
-import BlogInput from "views/admin/blogs/BlogInput";
-import AdminClassify from "views/admin/classify/Classify";
-import ClassInput from "views/admin/classify/ClassInput";
-import AdminLabel from "views/admin/label/Label";
-import LabelInput from "views/admin/label/LabelInput";
-import Login from "views/admin/Login";
+//
+// import Admin from "views/admin/Admin";
+// import AdminIndex from "views/admin/index/Index";
+// import AdminBlogs from "views/admin/blogs/Blogs";
+// import BlogInput from "views/admin/blogs/BlogInput";
+// import AdminClassify from "views/admin/classify/Classify";
+// import ClassInput from "views/admin/classify/ClassInput";
+// import AdminLabel from "views/admin/label/Label";
+// import LabelInput from "views/admin/label/LabelInput";
+// import Login from "views/admin/Login";
 
 
 

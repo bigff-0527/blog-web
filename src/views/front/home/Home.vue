@@ -36,29 +36,29 @@
           </home-left>
 
         <!-- 右边 -->
-          <home-right>
-            <home-classify slot="classifyCount">
-              <a v-for="(item,index) in classList" @click="classClick(item.typeId,index)"  target="_blank" class="item" >
-                <span >{{item.typeName}}</span>
-                <div class="ui teal basic left pointing label" >{{item.blogs.length}}</div>
-              </a>
+<!--          <home-right>-->
+<!--            <home-classify slot="classifyCount">-->
+<!--              <a v-for="(item,index) in classList" @click="classClick(item.typeId,index)"  target="_blank" class="item" >-->
+<!--                <span >{{item.typeName}}</span>-->
+<!--                <div class="ui teal basic left pointing label" >{{item.blogs.length}}</div>-->
+<!--              </a>-->
 
-            </home-classify>
-            <home-label slot="labelCount">
-              <a v-for="(item,index) in tagList" @click="tagClick(item.tagId,index)"  target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny">
-                <span >{{item.tagName}}</span>
-                <div class="detail" >{{item.blogs.length}}</div>
-              </a>
-            </home-label>
-            <home-recommend slot="recommend">
-              <div class="ui segment" >
-                <a href="#"  target="_blank" class="m-black m-text-thin" >我的故事</a>
-              </div>
-            </home-recommend>
+<!--            </home-classify>-->
+<!--            <home-label slot="labelCount">-->
+<!--              <a v-for="(item,index) in tagList" @click="tagClick(item.tagId,index)"  target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny">-->
+<!--                <span >{{item.tagName}}</span>-->
+<!--                <div class="detail" >{{item.blogs.length}}</div>-->
+<!--              </a>-->
+<!--            </home-label>-->
+<!--            <home-recommend slot="recommend">-->
+<!--              <div class="ui segment" >-->
+<!--                <a href="#"  target="_blank" class="m-black m-text-thin" >我的故事</a>-->
+<!--              </div>-->
+<!--            </home-recommend>-->
 <!--            <home-q-r slot="QR">-->
 <!--              <img src="~assets/img/wechat.jpg"  alt="" class="ui rounded image" >-->
 <!--            </home-q-r>-->
-          </home-right>
+<!--          </home-right>-->
       </div>
     </div>
 

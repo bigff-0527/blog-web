@@ -7,10 +7,10 @@
 
     <router-view
       @footerBlog="getFooterBlog"
-      :blogList="blogList.list"
-      :classList="classList.list"
-      :tagList="tagList.list"
       @type="typeClick(arguments)"
+      :blogList="blogList.list"
+      :classList="classList"
+      :tagList="tagList"
       :typeIndex="typeIndex"
       :typeId="typeId"
       @tag="tagClick(arguments)"
@@ -49,12 +49,8 @@
           pageSize: 0,
           list: [],
         },
-        classList: {
-          list: []
-        },
-        tagList: {
-          list:[]
-        },
+        classList: [],
+        tagList: [],
         footerBlog:[],
         typeId: 0,
         typeIndex: 0,
@@ -67,10 +63,10 @@
       //网络请求
       getIndexData(pageSize) {
         const page = this.blogList.pageNum + 1
-        getIndexData(page).then(res => {
-          // this.blogList.list.push(...res.data.blog.content)
-          // this.classList.list = res.data.class
-          // this.tagList.list = res.data.tag
+        getIndexData(page,pageSize).then(res => {
+          this.blogList.list.push(...res.data.blog.list)
+          this.classList = res.data.class
+          this.tagList = res.data.tag
           // this.blogList.pageNum += 1
           // this.footerBlog = this.blogList.list
           console.log(res)
