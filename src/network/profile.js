@@ -1,11 +1,12 @@
 import {request} from "./requset";
 
-export function getIndexData(pageNum,pageSize) {
+export function getProfileData(pageNum,pageSize) {
   return request({
-    url: '/getIndexData',
+    url: '/getProfileData',
     params: {
       pageNum,
       pageSize
     }
   })
+
 }

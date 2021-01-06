@@ -58,7 +58,7 @@
     margin:0em 1em !important;
 }
 .m-margin-tb-tiny{
-    margin-top: 0.3em !important; 
+    margin-top: 0.3em !important;
     margin-bottom: 0.3em !important;
 }
 .m-margin-top-small{
@@ -145,6 +145,19 @@ display: inline-block !important;
 .m-container{
     max-width: 72em !important;
     margin: auto !important;
+
+}
+
+.m-h{
+  position: absolute;
+  top: 200px;
+  height: 400px;
+  width: 100%;
+  background: url("~assets/img/homeBg.jpg")  no-repeat ;
+  background-size: 500px 300px;
+  background-position: right 30% bottom 51%;
+  background-attachment: fixed;
+  z-index: -1;
 }
 .m-container-small{
     max-width: 60em !important;
@@ -164,6 +177,12 @@ display: inline-block !important;
 }
 
 @media screen and (max-width:768px){
+    .m-h{
+
+      -webkit-filter: blur(5px);
+      filter: blur(15px);
+      transform: scale(1.2);
+    }
     .m-mobile-hide{
         display: none !important;
     }
@@ -181,4 +200,10 @@ display: inline-block !important;
     .m-mobile-wide{
         width: 100% !important;
     }
+}
+
+.nav{
+  position:sticky;
+  top:40px;
+  z-index: 999;
 }

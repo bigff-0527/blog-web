@@ -57,7 +57,7 @@
           },
 
         ],
-        navIndex: 1
+        navIndex: 0
       }
     },
     methods: {

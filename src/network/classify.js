@@ -2,7 +2,7 @@ import {request} from "./requset";
 
 export function getClassList() {
   return request({
-    url: '/getClassList',
+    url: '/getTypeList',
   })
 }
 export function getBlogByTypeId(pageNum,pageSize,typeId) {

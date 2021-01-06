@@ -1,5 +1,5 @@
 {
-  "name": "webpack",
+  "name": "webfront",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
+    "bootstrap-select": "^1.13.18",
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
     "qs": "^6.9.4",
@@ -17,9 +19,10 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "axios": "^0.21.0",
-    "bootstrap": "^3.4.1",
     "jquery": "^3.2.0",
+    "popper.js": "^1.16.1",
     "semantic-ui-css": "^2.2.4",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.0.0"
   }
 }
