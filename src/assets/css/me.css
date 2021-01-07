@@ -201,9 +201,12 @@ display: inline-block !important;
         width: 100% !important;
     }
 }
+<<<<<<< HEAD
 
 .nav{
   position:sticky;
   top:40px;
   z-index: 999;
 }
+=======
+>>>>>>> df6098d1efa6b37e924da7d30de67599b5dea8fd

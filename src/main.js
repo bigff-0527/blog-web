@@ -11,6 +11,9 @@ import "bootstrap-select/dist/css/bootstrap-select.css"
 import "bootstrap-select/js/bootstrap-select"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
+=======
+import 'semantic-ui-css/semantic.min.css';
+
 import 'assets/css/me.css'
 
 Vue.use(ElementUI)
