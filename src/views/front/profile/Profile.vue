@@ -1,7 +1,8 @@
 <template>
-  <div class="m-container-small m-padded-tb-big">
-    <div class="ui container">
-      <div class="block">
+  <div class="container m-padded-tb-huge">
+    <div class="row justify-content-md-center">
+
+      <div class="col-md-8 block">
         <div class="radio" style="margin-bottom: 50px">
           排序：
           <el-radio-group v-model="reverse">
@@ -18,18 +19,6 @@
               <p>{{item.user.username}} <span>{{item.create_time === item.update_time ? '创建' : '更新'}}</span>  </p>
             </el-card>
           </el-timeline-item>
-<!--          <el-timeline-item timestamp="2018/4/3" placement="top">-->
-<!--            <el-card>-->
-<!--              <h4>更新 Github 模板</h4>-->
-<!--              <p>王小虎 提交于 2018/4/3 20:46</p>-->
-<!--            </el-card>-->
-<!--          </el-timeline-item>-->
-<!--          <el-timeline-item timestamp="2018/4/2" placement="top">-->
-<!--            <el-card>-->
-<!--              <h4>更新 Github 模板</h4>-->
-<!--              <p>王小虎 提交于 2018/4/2 20:46</p>-->
-<!--            </el-card>-->
-<!--          </el-timeline-item>-->
         </el-timeline>
       </div>
 
@@ -69,12 +58,14 @@
         })
       }
     },
-    created() {
+    mounted() {
       this.getProfileData(8)
     }
   }
 </script>
 
 <style scoped>
+
+
 
 </style>

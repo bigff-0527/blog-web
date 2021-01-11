@@ -41,6 +41,14 @@
     padding-top: 5em !important;
     padding-bottom: 5em !important;
 }
+.m-padded-tb-top{
+    padding-top: 10em !important;
+  padding-bottom: 0em !important;
+}
+.m-padded-tb-top-icon{
+  padding-top: 0em !important;
+  padding-bottom: 3em !important;
+}
 
 .m-padded-lr-responsive{
     padding-left: 4em !important;
@@ -111,17 +119,23 @@
 /* position */
 .m-right-top{
     position: absolute;
-    top: 0;
-    right: 0;
-
+    top: 1%;
+    right: 1%;
 }
 .m-fixed{
     position:fixed !important ;
+    top: 1%;
+    right: 1%;
     z-index: 10 !important;
 }
 .m-right-bottom{
     bottom: 0 !important;
     right: 0 !important;
+}
+
+.m-right{
+  position: absolute;
+  right: 0;
 
 }
 
@@ -150,13 +164,17 @@ display: inline-block !important;
 
 .m-h{
   position: absolute;
-  top: 200px;
-  height: 400px;
-  width: 100%;
-  background: url("~assets/img/homeBg.jpg")  no-repeat ;
-  background-size: 500px 300px;
-  background-position: right 30% bottom 51%;
-  background-attachment: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 800px;
+  width: 80%;
+  margin: 0 auto;
+  background: url("~assets/img/homeBg.jpg")  no-repeat  ;
+  background-size: 88% ;
+  background-position: center right 40%;
+
+  /*background-attachment: fixed;*/
   z-index: -1;
 }
 .m-container-small{
@@ -175,14 +193,26 @@ display: inline-block !important;
 .m-mobile-show{
     display: none !important;
 }
+.m-hide{
+  display: none !important;
+}
 
 @media screen and (max-width:768px){
     .m-h{
-
+      position: absolute;
+      top: -200px;
+      background-size: 80%;
+      background-position: center center;
+      /*  width: 800px;*/
+      /*height: 500px;*/
       -webkit-filter: blur(5px);
       filter: blur(15px);
       transform: scale(1.2);
     }
+  .m-padded-tb-top{
+    padding-top: 0em !important;
+    padding-bottom: 5em !important;
+  }
     .m-mobile-hide{
         display: none !important;
     }
@@ -201,12 +231,19 @@ display: inline-block !important;
         width: 100% !important;
     }
 }
-<<<<<<< HEAD
 
-.nav{
-  position:sticky;
-  top:40px;
-  z-index: 999;
+
+
+.iconH{
+
+  font-size: 25px;
+  margin: 0px 10px;
+  color : rgba(253, 255, 251, 0.57)
 }
-=======
->>>>>>> df6098d1efa6b37e924da7d30de67599b5dea8fd
+.tag{
+  display: inline-block;
+}
+.tag span{
+  margin: 5px;
+}
+

@@ -1,163 +1,161 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    <div class="container">
-      <h1 class="display-4">你还不跑起来吗</h1>
-      <p class="lead">You're not trying?</p>
-      <a class="my-4 btn btn-primary btn-lg" @click="toBlogList" role="button">查看更多</a>
+  <div class="container ">
+    <div class=" row m-padded-tb-top  ">
+      <div class="col-md-12">
+        <h1 class="display-4 ">你还不跑起来吗</h1>
+        <p class="lead">You're not trying?</p>
+      </div>
+    </div>
+    <div class="row justify-content-md-center m-padded-tb-small m-mobile-hide " style="text-align:center">
+      <div class="col-md-4">
+        <img src="~assets/img/headimg.jpg" style="width: 20%;border-radius: 100%;" alt="">
+      </div>
+    </div>
+    <div class="row justify-content-md-center m-padded-tb-top-icon m-mobile-hide " style="text-align:center">
+      <div class="col-md-4">
+        <el-popover
+          placement="bottom"
+          width="200"
+          trigger="hover"
+          content="https://github.com/bigff-0527">
+          <i slot="reference" class="fa fa-weixin iconH " aria-hidden="true"></i>
+        </el-popover>
+        <el-popover
+          placement="bottom"
+          width="200"
+          trigger="hover"
+          content="https://github.com/bigff-0527">
+          <i slot="reference" class="fa fa-github iconH " aria-hidden="true"></i>
+        </el-popover>
+        <el-popover
+          placement="bottom"
+          width="200"
+          trigger="hover"
+          content="https://github.com/bigff-0527">
+          <i slot="reference" class="fa fa-envelope-o iconH " aria-hidden="true"></i>
+        </el-popover>
+      </div>
+
+    </div>
+    <div class="row justify-content-md-center m-padded-tb-more " style="text-align:center">
+      <div class="col-md-4  ">
+        <!--          <img src="~assets/img/headimg.jpg" style="width: 20%;border-radius: 100%;" alt="">-->
+        <el-button style="background: none;color: white" @click="toBlogList">查看更多</el-button>
+      </div>
+    </div>
     <div class="m-h">
     </div>
-    </div>
-    <div class="container m-padded-tb-big" >
-      <div class="row m-padded-tb-small">
+    <div class="row m-padded-tb-big">
+      <div class=" m-padded-tb-small">
         <div class="col-md-12">
           <h3 class="m-text">推荐博客</h3>
         </div>
       </div>
-      <div class="row" >
-        <div class="col-xl-4  m-padded-tb-big " >
-          <div class="card " style="width: 100%;">
-            <img src="" class="card-img-top" alt="...">
+      <div class="row">
+        <div v-for="item in blogList" :class=" scrollAnimate ?
+        'col-xl-4 animate__animated animate__zoomIn m-padded-tb-big' :
+          'col-xl-4  m-padded-tb-big'  ">
+          <div class="card m-shadow-small " @click="blogShow(item.id)" style="width: 100%;">
+            <img :src="item.first_picture" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">详细</a>
+              <h5 class="card-title">{{item.title}} </h5>
+              <p class="card-text"></p>
+              <el-tag type="success" effect="plain">{{item.type.typeName}}</el-tag>
+              <div class="tag" v-for="item in item.tags">
+                <span class=" badge  badge-success">{{item.tagName}}</span>
+              </div>
+              <span class="text-black-50" style="position: absolute; right: 20%"><i class="fa fa-eye"
+                                                                                    aria-hidden="true">&nbsp;{{item.views}}</i></span>
+              <span class="text-black-50" style="position: absolute; right: 10%"><i class="fa fa-commenting-o"
+                                                                                    aria-hidden="true">&nbsp; {{item.comment_count != null ? item.comment_count : 0}}</i></span>
             </div>
           </div>
         </div>
-        <div class="col-xl-4  m-padded-tb-big ">
-          <div class="card " style="width: 100%;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">详细</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4  m-padded-tb-big ">
-          <div class="card " style="width: 100%;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">详细</a>
-            </div>
-          </div>
-        </div>
-
-=======
-  <div class="m-container m-padded-tb-big">
-    <div class="ui container">
-      <div class="ui stackable grid">
-
-        <!-- 左边 -->
-          <home-left>
-<!--博客总数-->
-            <count slot="count">
-              <h3 slot="typeName" class="ui teal header">博客</h3>
-              <h2 slot="typeCount" class="ui orange header m-inline-blok m-text-thin">14</h2>
-            </count>
-
-<!--博客列表-->
-              <blog-list slot="blogList" v-for="item in blogList">
-                <h3 slot="title" class="ui header"><a href="#"  target="_blank" class="m-black" >{{item.title}}</a></h3>
-                <p slot="desc" class="m-text" >{{item.description}}</p>
-                <blog-author slot="author">
-                  <img slot="authorHead" :src="item.user.avatar"  alt="" class="ui avatar image">
-                  <div slot="authorName" class="content"><a href="#" class="header" >{{item.user.username}}</a></div>
-                </blog-author>
-                <span slot="createTime" >{{item.update_time}}</span>
-                <span slot="view">{{item.views}}</span>
-                <img slot="first_picture" :src="item.first_picture" class="ui rounded image" alt="">
-                <a slot="classify" href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" >{{item.type.typeName}}</a>
-              </blog-list>
-
-<!--分页-->
-            <blog-page slot="page">
-              <slot name="blogPage">
-                <a slot="pageUp" class="ui teal mini basic button">上一页</a>
-                <a slot="pageDown" class="ui teal mini basic button" >下一页</a>
-              </slot>
-            </blog-page>
-
-          </home-left>
-
-        <!-- 右边 -->
-<!--          <home-right>-->
-<!--            <home-classify slot="classifyCount">-->
-<!--              <a v-for="(item,index) in classList" @click="classClick(item.typeId,index)"  target="_blank" class="item" >-->
-<!--                <span >{{item.typeName}}</span>-->
-<!--                <div class="ui teal basic left pointing label" >{{item.blogs.length}}</div>-->
-<!--              </a>-->
-
-<!--            </home-classify>-->
-<!--            <home-label slot="labelCount">-->
-<!--              <a v-for="(item,index) in tagList" @click="tagClick(item.tagId,index)"  target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny">-->
-<!--                <span >{{item.tagName}}</span>-->
-<!--                <div class="detail" >{{item.blogs.length}}</div>-->
-<!--              </a>-->
-<!--            </home-label>-->
-<!--            <home-recommend slot="recommend">-->
-<!--              <div class="ui segment" >-->
-<!--                <a href="#"  target="_blank" class="m-black m-text-thin" >我的故事</a>-->
-<!--              </div>-->
-<!--            </home-recommend>-->
-<!--            <home-q-r slot="QR">-->
-<!--              <img src="~assets/img/wechat.jpg"  alt="" class="ui rounded image" >-->
-<!--            </home-q-r>-->
-<!--          </home-right>-->
->>>>>>> df6098d1efa6b37e924da7d30de67599b5dea8fd
       </div>
     </div>
   </div>
 </template>
 <script>
-  // import HomeLeft from "./homeLeft/HomeLeft";
-  // import Count from "components/common/count/Count";
-  // import BlogList from "components/common/BlogList/BlogList";
-  // import BlogAuthor from "components/common/BlogList/BlogAuthor/BlogAuthor";
-  // import BlogPage from "components/common/BlogPage/BlogPage";
-  // import HomeQR from "./homeRight/homeQR/HomeQR";
-  //
-  //
-  // import HomeRight from "./homeRight/HomeRight";
-  // import HomeClassify from "./homeRight/homeClassify/HomeClassify";
-  // import HomeLabel from "./homeRight/homeLabel/HomeLabel";
-  // import HomeRecommend from "./homeRight/homeRecommend/HomeRecommend";
-
-  import {getHomeData} from 'network/home'
-
+  import {getIndexData} from "network/home";
 
   export default {
     name: "Home",
-    components: {
-
-    },
-
+    components: {},
     data() {
       return {
+        blogList: [],
+        scrollAnimate: false
       }
     },
     methods: {
-      toBlogList(){
+      toBlogList() {
         this.$router.push("/front/blogList")
+
+      },
+      windowScroll() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(scrollTop);
+        if (scrollTop >= 250) {
+          this.scrollAnimate = true
+        } else this.scrollAnimate = false
+      },
+      getIndexData() {
+        getIndexData().then(res => {
+          console.log(res.data);
+          this.blogList = res.data
+
+        })
+      },
+      blogShow(id) {
+        this.$store.commit("SET_BLOGSHOWID", id)
+        this.$router.push("blogShow")
       }
     },
     created() {
-    },
-    mounted(){
 
     },
+
+    mounted() {
+      this.getIndexData()
+      window.addEventListener('scroll', this.windowScroll)
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.windowScroll)
+    }
 
   }
 
 </script>
 
 <style scoped>
+
+  .col-xl-4:hover {
+    transform: scale(1.1);
+  }
+
+  .more {
+    margin-bottom: 10rem !important;
+    border: 1px solid white;
+    border-radius: 20px;
+    height: 50px;
+    line-height: 50px;
+    width: 10%;
+
+  }
+
+  .more:hover {
+    transform: scale(1.3);
+  }
+
+  .btn {
+    color: white;
+    font-size: 20px;
+  }
+
+  .m-padded-tb-more {
+    padding-top: 0rem !important;
+    margin-bottom: 12rem !important;
+  }
 
 
 </style>
