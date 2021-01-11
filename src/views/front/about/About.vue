@@ -34,7 +34,6 @@
           <span class="text-black-50">Mybatis</span><br/>
           <span class="text-black-50">Jwt</span><br/>
           <span class="text-black-50">Shiro</span><br/>
-          <span class="text-black-50">Redis</span><br/>
           <span class="text-black-50">MySql</span><br/>
           <span class="text-black-50">Maven</span><br/>
           <span class="text-black-50">PageHelper</span><br/>

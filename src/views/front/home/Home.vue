@@ -46,11 +46,12 @@
     <div class="m-h">
     </div>
     <div class="row m-padded-tb-big">
-      <div class=" m-padded-tb-small">
+      <div class=" ">
         <div class="col-md-12">
           <h3 class="m-text">推荐博客</h3>
         </div>
       </div>
+
       <div class="row">
         <div v-for="item in blogList" :class=" scrollAnimate ?
         'col-xl-4 animate__animated animate__zoomIn m-padded-tb-big' :
@@ -64,7 +65,7 @@
               <div class="tag" v-for="item in item.tags">
                 <span class=" badge  badge-success">{{item.tagName}}</span>
               </div>
-              <span class="text-black-50" style="position: absolute; right: 20%"><i class="fa fa-eye"
+              <span class="text-black-50" style="position: absolute; right: 30%"><i class="fa fa-eye"
                                                                                     aria-hidden="true">&nbsp;{{item.views}}</i></span>
               <span class="text-black-50" style="position: absolute; right: 10%"><i class="fa fa-commenting-o"
                                                                                     aria-hidden="true">&nbsp; {{item.comment_count != null ? item.comment_count : 0}}</i></span>

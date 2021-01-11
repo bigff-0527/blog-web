@@ -4,7 +4,7 @@
       <img class="col-md-12 rounded" :src="blog.first_picture" alt="">
       <h1 class=" col-md-12 m-padded-tb-large text-center">{{blog.title}}</h1>
       <div class="markdown-body col-md-12">
-        <VueMarkdown :source="blog.content" v-highlight></VueMarkdown>
+        <VueMarkdown class="m-shadow-small" :source="blog.content" v-highlight></VueMarkdown>
         <el-tag effect="dark">{{blog.flag}}</el-tag>
         <br/><br/>
         <el-tag type="success" effect="plain">{{blog.type.typeName}}</el-tag>
